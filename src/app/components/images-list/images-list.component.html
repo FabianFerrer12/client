@@ -1,0 +1,34 @@
+<div class="row">
+  <div>
+    <p>Consultar por fechas</p>
+
+    <mat-form-field>
+      <mat-label>Enter a date range</mat-label>
+      <mat-date-range-input [formGroup]="dateform" [rangePicker]="picker">
+        <input matStartDate formControlName="start" placeholder="Start date" />
+        <input matEndDate formControlName="end" placeholder="End date" />
+      </mat-date-range-input>
+      <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+    <button mat-flat-button color="primary" (click)="Buscar()">Buscar</button>
+    <div class="card-header">Numero de images mostradas: {{ counter }}</div>
+  </div>
+
+  <div class="col-md-4 p-4" *ngFor="let image of images">
+    <div class="card">
+      <div class="card-header">Quien subio la imagen: {{ image.user }}</div>
+      <div class="card-header">
+        Fecha de creacion del archivo {{ image.date }}
+      </div>
+      <img
+        [src]="'http://localhost:4000/' + image.urlimages"
+        class="img-card-top w-100"
+      />
+    </div>
+  </div>
+</div>

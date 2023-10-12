@@ -1,0 +1,29 @@
+<div class="col-lg-4 mx-auto">
+  <div class="card">
+    <div class="card-header">Formulario para subir una imagen</div>
+    <div class="card-body">
+      <form (submit)="subirDatos(user)">
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Usuario"
+            required
+            #user
+          />
+        </div>
+
+        <div class="form-group">
+          <input type="file" (change)="onImagesSelect($event)" />
+          <!-- <img
+            [src]="onImagesSelect || 'assets/4693713-200.png'"
+            class="img-fluid"
+            (click)="imagesInput.click()"
+          /> -->
+        </div>
+
+        <button class="btn btn-primary btn-block">Guardar</button>
+      </form>
+    </div>
+  </div>
+</div>
