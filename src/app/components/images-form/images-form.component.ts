@@ -34,7 +34,7 @@ export class ImagesFormComponent {
     let formatteDate = datepipe.transform(fecha, 'YYYY-MMM-dd HH:mm:ss')
     const fechaString = formatteDate!.toString()
     console.log(fechaString)
-    this.ImageService.createImage(user.value, fechaString, this.file).subscribe(res => { console.log(res) }, err => console.log(err))
+    this.ImageService.createImage(user.value, fechaString, this.file).subscribe(res => { this.router.navigate(["/ListImages"]) }, err => console.log(err))
     return false;
   }
 }
